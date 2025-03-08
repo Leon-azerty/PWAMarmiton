@@ -1,0 +1,15 @@
+services:
+  db:
+    image: postgres
+    container_name: pwaMarmiton
+    environment:
+      POSTGRES_USER: user
+      POSTGRES_PASSWORD: password
+      POSTGRES_DB: mydatabase
+    volumes:
+      - Marmiton_pgdata:/var/lib/postgresql/data
+    ports:
+      - "5432:5432"
+
+volumes:
+  Marmiton_pgdata:
