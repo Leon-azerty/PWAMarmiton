@@ -17,7 +17,6 @@ export default function RecipeWrapper(props: IRecipeWrapperProps) {
 
   return (
     <>
-      <h1>8 mars 08h37</h1>
       <Search search={search} setSearch={setSearch} />
       {!props.favoritesOnly && props.userId && (
         <RecipeManagerCard

@@ -5,7 +5,7 @@
   "scripts": {
     "dev": "next dev --experimental-https",
     "prebuild": "echo '{\"version\": \"'$(git rev-parse --short HEAD)'\"}' > public/version.json",
-    "build": "prisma generate && next build",
+    "build": "prisma generate && prisma migrate deploy  && next build",
     "start": "next start",
     "lint": "next lint",
     "db:reset": "prisma db push --force-reset"
