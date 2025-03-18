@@ -5,14 +5,14 @@
   "scripts": {
     "dev": "next dev --experimental-https",
     "prebuild": "echo '{\"version\": \"'$(git rev-parse --short HEAD)'\"}' > public/version.json",
-    "build": "prisma generate && prisma migrate deploy  && next build",
+    "build": "prisma generate && prisma migrate deploy && p set-ingredients && next build",
     "start": "next start",
     "lint": "next lint",
-    "db:reset": "prisma db push --force-reset"
+    "db:reset": "prisma db push --force-reset",
+    "set-ingredients": "ts-node --compiler-options '{\"module\":\"CommonJS\"}' prisma/set-ingredients.ts"
   },
   "prisma": {
-    "seed": "ts-node --compiler-options {\"module\":\"CommonJS\"} prisma/seed.ts",
-    "ingredients": "ts-node --compiler-options {\"module\":\"CommonJS\"} prisma/set-ingredients.ts"
+    "seed": "ts-node --compiler-options {\"module\":\"CommonJS\"} prisma/seed.ts"
   },
   "dependencies": {
     "@hookform/resolvers": "^3.9.0",
